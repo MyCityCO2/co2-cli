@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "co2"
+version = "0.1.1"
+description = ""
+authors = ["Adam Bonnet <adambonnet0@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+typer = { extras = ["all"], version = "^0.9.0" }
+co2-mycityco2 = "^0.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+co2 = 'co2.cli.cli:cli'
