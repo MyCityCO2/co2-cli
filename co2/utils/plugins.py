@@ -19,8 +19,14 @@ class Plugins:
         self.plugins = self._get_plugins()
 
     def _get_plugins(self):
-        return {
+        plugins_dict = {
             name: importlib.import_module(name)
             for finder, name, ispkg in pkgutil.iter_modules()
             if name.startswith("co2_")
         }
+        plugins = []
+        for name, plugin in plugins_dict.items():
+            if plugin.__dict__.get("__co2__"):
+                plugins.append((name, plugin))
+
+        return plugins

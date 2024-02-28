@@ -8,7 +8,7 @@ cli = typer.Typer(no_args_is_help=True)
 
 plugins = Plugins()
 
-for name, plugin in plugins.plugins.items():
+for name, plugin in plugins.plugins:
     cli.add_typer(plugin.cli, name=name.replace("co2_", ""))
 
 cli.add_typer(plugins_cli, name="plugins")

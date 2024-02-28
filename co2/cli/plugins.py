@@ -10,5 +10,5 @@ plugins = Plugins()
 @cli.command()
 def list() -> None:
     print(f"There are {len(plugins.plugins)} installed plugins:")
-    for name, _ in plugins.plugins.items():
+    for name, _ in plugins.plugins:
         print(f"- {name.replace('co2_', '')}")
