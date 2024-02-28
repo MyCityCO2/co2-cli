@@ -1,25 +1,19 @@
-import importlib
-import pkgutil
-
 import typer
 
 from co2 import __version__
-from co2.cli.plugins import plugins
-
-discovered_plugins = {
-    name: importlib.import_module(name)
-    for finder, name, ispkg in pkgutil.iter_modules()
-    if name.startswith("co2_")
-}
+from co2.cli.plugins import cli as plugins_cli
+from co2.utils.plugins import Plugins
 
 cli = typer.Typer(no_args_is_help=True)
 
-for name, plugin in discovered_plugins.items():
+plugins = Plugins()
+
+for name, plugin in plugins.plugins.items():
     cli.add_typer(plugin.cli, name=name.replace("co2_", ""))
 
-cli.add_typer(plugins, name="plugins")
+cli.add_typer(plugins_cli, name="plugins")
 
 
 @cli.command()
-def version():
+def version() -> None:
     print(f"Current version is {__version__}")
