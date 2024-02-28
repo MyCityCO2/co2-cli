@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "co2"
-version = "0.0.1"
+version = "0.1.0"
 description = ""
 authors = ["Adam Bonnet <adambonnet0@gmail.com>"]
 readme = "README.md"
