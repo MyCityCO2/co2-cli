@@ -15,6 +15,8 @@ def singleton(class_):
 
 @singleton
 class Plugins:
+    plugins_start: str = "co2_"
+
     def __init__(self, *args, **kwargs):
         self.plugins = self._get_plugins()
 
@@ -22,11 +24,11 @@ class Plugins:
         plugins_dict = {
             name: importlib.import_module(name)
             for finder, name, ispkg in pkgutil.iter_modules()
-            if name.startswith("co2_")
+            if name.startswith(self.plugins_start)
         }
         plugins = []
         for name, plugin in plugins_dict.items():
             if plugin.__dict__.get("__co2__"):
-                plugins.append((name, plugin))
+                plugins.append((name.replace(self.plugins_start, ""), plugin))
 
         return plugins
