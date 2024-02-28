@@ -1,11 +1,11 @@
 ---
     name: Orchestrator
-    
+
     on:
       push:
         branches:
           - main
-    
+
     jobs:
       call-testing-pipeline:
         name: Testing

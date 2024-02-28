@@ -1,14 +1,14 @@
 ---
     name: Release
-    
+
     on:
       workflow_call:
-    
+
     jobs:
       release:
         runs-on: ubuntu-latest
         concurrency: release
-    
+
         steps:
           # check-out repo
           - name: Checkout repository
@@ -40,7 +40,7 @@
               git config --global user.email "github-actions@github.com"
               poetry run semantic-release --strict version
             continue-on-error: true
-    
+
           - name: Publish
             if: ${{ steps.semantic_release.outcome == 'success' }}
             env:
