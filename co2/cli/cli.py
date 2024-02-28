@@ -2,7 +2,7 @@ import typer
 
 from co2 import __version__
 from co2.cli.plugins import cli as plugins_cli
-from co2.utils.plugins import Plugins
+from co2.const import Plugins
 
 cli = typer.Typer(no_args_is_help=True)
 
