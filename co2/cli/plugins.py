@@ -1,7 +1,7 @@
-import typer
 import importlib
 import pkgutil
 
+import typer
 
 discovered_plugins = {
     name: importlib.import_module(name)
@@ -10,6 +10,7 @@ discovered_plugins = {
 }
 
 plugins = typer.Typer(no_args_is_help=True)
+
 
 @plugins.command()
 def list():

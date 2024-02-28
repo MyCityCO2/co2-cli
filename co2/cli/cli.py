@@ -3,9 +3,8 @@ import pkgutil
 
 import typer
 
-from co2.cli.plugins import plugins
-
 from co2 import __version__
+from co2.cli.plugins import plugins
 
 discovered_plugins = {
     name: importlib.import_module(name)
