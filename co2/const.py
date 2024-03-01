@@ -4,11 +4,11 @@ import typer
 from pydantic import model_validator
 from pydantic_settings import BaseSettings
 
-from co2.utils.plugins import Plugins
+# from co2.utils.plugins import Plugins
 
 _path = Path(__file__).absolute().parent
 
-plugins: Plugins = Plugins()
+# plugins: Plugins = Plugins()
 
 
 class Settings(BaseSettings):
