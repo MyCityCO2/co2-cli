@@ -17,8 +17,6 @@ class Settings(BaseSettings):
         env_file = ".env"
         env_file_encoding = "utf-8"
 
-    PATH: Path = _path
-
     APP_PATH: Path = typer.get_app_dir(app_name="co2", force_posix=True)
 
     LOGORU_FORMAT: str = "<green>{time:YYYY-MM-DD at HH:mm:ss}</green> <level>{level}</level> - {message}"
