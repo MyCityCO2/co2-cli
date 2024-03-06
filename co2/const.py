@@ -4,11 +4,7 @@ import typer
 from pydantic import model_validator
 from pydantic_settings import BaseSettings
 
-# from co2.utils.plugins import Plugins
-
 _path = Path(__file__).absolute().parent
-
-# plugins: Plugins = Plugins()
 
 
 class Settings(BaseSettings):
@@ -16,8 +12,6 @@ class Settings(BaseSettings):
         env_prefix = "CO2_"
         env_file = ".env"
         env_file_encoding = "utf-8"
-
-    PATH: Path = _path
 
     APP_PATH: Path = typer.get_app_dir(app_name="co2", force_posix=True)
 
