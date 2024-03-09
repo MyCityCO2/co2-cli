@@ -18,6 +18,11 @@ class Settings(BaseSettings):
     LOGORU_FORMAT: str = "<green>{time:YYYY-MM-DD at HH:mm:ss}</green> <level>{level}</level> - {message}"
     LOGURU_LEVEL: str = "DEBUG"
 
+    COA_SET_NAMING: str = "coa-{name}.csv"
+    COA_SET_WILDCARD: str = "coa-*.csv"
+    ACCOUNT_SET_NAMING: str = "account-{district}.csv"
+    ACCOUNT_SET_WILDCARD: str = "account-*.csv"
+
     # Method
     @classmethod
     @model_validator(mode="before")
