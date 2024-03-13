@@ -20,8 +20,15 @@ class Settings(BaseSettings):
 
     COA_SET_NAMING: str = "coa-{name}.csv"
     COA_SET_WILDCARD: str = "coa-*.csv"
+    COA_SET_REGEX: str = r"(?<=coa-).+?(?=.csv)"
+
     ACCOUNT_SET_NAMING: str = "account-{district}.csv"
     ACCOUNT_SET_WILDCARD: str = "account-*.csv"
+    ACCOUNT_SET_REGEX: str = r"(?<=account-).+?(?=.csv)"
+
+    CARBON_FILE_PATH: str = (
+        "carbon_factor.csv"  # This file is there to create all carbon.factor in Odoo...
+    )
 
     # Method
     @classmethod
